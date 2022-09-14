@@ -25,7 +25,7 @@ namespace StudentsAMS.Controllers
             return View();
         }
 
-        public async Task<IActionResult> GetStudnetsList()
+        public async Task<IActionResult> GetStudentsList()
         {
             try
             {
@@ -89,9 +89,9 @@ namespace StudentsAMS.Controllers
                     var contentStream = await httpResponseMessage.Content.ReadAsStringAsync();
 
                     var result = JsonSerializer.Deserialize<StudentsViewModel>(contentStream);
-                    return RedirectToAction("GetStudnetsList");
+                    return RedirectToAction("GetStudentsList");
                 }
-                return RedirectToAction("GetStudnetsList");
+                return RedirectToAction("GetStudentsList");
             }
             catch (Exception ex)
             {
@@ -116,11 +116,11 @@ namespace StudentsAMS.Controllers
                     var contentStream = await httpResponseMessage.Content.ReadAsStringAsync();
                     if (contentStream == "null")
                     {
-                        return RedirectToAction("GetStudnetsList");
+                        return RedirectToAction("GetStudentsList");
                     }
                 }
 
-                return RedirectToAction("GetStudnetsList");
+                return RedirectToAction("GetStudentsList");
             }
             catch (Exception ex)
             {
